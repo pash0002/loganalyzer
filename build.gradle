@@ -13,9 +13,12 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework:spring-web:5.3.15'
+	implementation 'org.springframework.boot:spring-boot-starter:2.6.3'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest:2.6.3'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.6.3'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
+
 }
 
 tasks.named('test') {
