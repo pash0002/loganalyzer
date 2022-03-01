@@ -1,15 +1,20 @@
 package com.example.loganalyzer.parser;
 
 import com.example.loganalyzer.datasource.LogDataSource;
+import com.example.loganalyzer.io.InputFileReader;
 
 public class LogProcessor {
 
-  private final RegexHandler regexHandler;
-  public LogProcessor(String logText) {
-    regexHandler = new RegexHandler(logText);
+//  private  RegexHandler regexHandler;
+  private final InputFileReader reader;
+
+  public LogProcessor(InputFileReader reader) {
+    this.reader = reader;
+
   }
 
-  public LogDataSource processAndGetLogDataSourceObject() {
+  public LogDataSource processAndGetLogDataSourceObject(String line) {
+    RegexHandler regexHandler = new RegexHandler(line);
     String ipAddress = regexHandler.getIpAddressWithRegex();
     String userAgent = regexHandler.getUserAgent();
     Integer statusCode = regexHandler.getStatusCode();
@@ -27,7 +32,6 @@ public class LogProcessor {
         .setUser(user)
         .setEnterpriseId(enterpriseId)
         .setEnterpriseName(enterpriseName);
-
   }
 
 }

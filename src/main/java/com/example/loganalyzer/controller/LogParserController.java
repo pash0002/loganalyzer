@@ -5,7 +5,10 @@ import com.example.loganalyzer.parser.LogParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class LogParserController {
@@ -17,8 +20,9 @@ public class LogParserController {
       "#,!Response-Time=346#,!Request-Body=";
 
   @GetMapping("/parse")
-  public ResponseEntity<LogDataSource> getParsedLogs() {
-    LogParser parser = new LogParser(logText);
+  public ResponseEntity<List<LogDataSource>> getParsedLogs(@RequestParam(name="filepath") String filePath) {
+    System.out.println("FilePath - " + filePath);
+    LogParser parser = new LogParser(filePath);
     return new ResponseEntity<>(parser.parse(), HttpStatus.OK);
   }
 
