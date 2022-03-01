@@ -3,6 +3,7 @@ package com.example.loganalyzer.model;
 
 public final class LogDataModel {
 
+  private final String logLevel;
   private final String ipAddress;
   private final String userAgent;
   private final Integer statusCode;
@@ -13,6 +14,7 @@ public final class LogDataModel {
   private final String enterpriseName;
   
   private LogDataModel(Builder builder) {
+    this.logLevel = builder.logLevel;
     this.ipAddress = builder.ipAddress;
     this.userAgent = builder.userAgent;
     this.statusCode = builder.statusCode;
@@ -21,6 +23,10 @@ public final class LogDataModel {
     this.user = builder.user;
     this.enterpriseId = builder.enterpriseId;
     this.enterpriseName = builder.enterpriseName;
+  }
+
+  public String getLogLevel() {
+    return logLevel;
   }
 
   public String getIpAddress() {
@@ -64,8 +70,14 @@ public final class LogDataModel {
     private String user;
     private String enterpriseId;
     private String enterpriseName;
+    private String logLevel;
     
     public Builder() { }
+
+    public Builder setLogLevel(String logLevel) {
+      this.logLevel = logLevel;
+      return this;
+    }
 
     public Builder setIpAddress(String ipAddress) {
       this.ipAddress = ipAddress;

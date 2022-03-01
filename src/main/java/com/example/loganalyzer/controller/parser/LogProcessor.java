@@ -8,6 +8,7 @@ public class LogProcessor {
 
   public LogDataModel processAndGetLogDataSourceObject(String line) {
     RegexHandler regexHandler = new RegexHandler(line);
+    String logLevel = regexHandler.getLogLevel();
     String ipAddress = regexHandler.getIpAddressWithRegex();
     String userAgent = regexHandler.getUserAgent();
     Integer statusCode = regexHandler.getStatusCode();
