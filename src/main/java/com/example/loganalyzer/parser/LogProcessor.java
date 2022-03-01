@@ -1,6 +1,6 @@
 package com.example.loganalyzer.parser;
 
-import com.example.loganalyzer.datasource.LogDataSource;
+import com.example.loganalyzer.model.LogDataModel;
 import com.example.loganalyzer.io.InputFileReader;
 
 public class LogProcessor {
@@ -12,7 +12,7 @@ public class LogProcessor {
 
   }
 
-  public LogDataSource processAndGetLogDataSourceObject(String line) {
+  public LogDataModel processAndGetLogDataSourceObject(String line) {
     RegexHandler regexHandler = new RegexHandler(line);
     String ipAddress = regexHandler.getIpAddressWithRegex();
     String userAgent = regexHandler.getUserAgent();
@@ -22,7 +22,7 @@ public class LogProcessor {
     String user = regexHandler.getUser();
     String enterpriseId = regexHandler.getEnterpriseId();
     String enterpriseName = regexHandler.getEnterpriseName();
-    return new LogDataSource
+    return new LogDataModel
         .Builder()
         .setIpAddress(ipAddress)
         .setUserAgent(userAgent)

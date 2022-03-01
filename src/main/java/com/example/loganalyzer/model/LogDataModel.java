@@ -1,57 +1,26 @@
-package com.example.loganalyzer.datasource;
+package com.example.loganalyzer.model;
 
 
-public final class LogDataSource {
+public final class LogDataModel {
 
-  private String ipAddress;
-  private String userAgent;
-  private Integer statusCode;
-  private String requestType;
-  private String api;
-  private String user;
-  private String enterpriseId;
-  private String enterpriseName;
+  private final String ipAddress;
+  private final String userAgent;
+  private final Integer statusCode;
+  private final String requestType;
+  private final String api;
+  private final String user;
+  private final String enterpriseId;
+  private final String enterpriseName;
   
-  private LogDataSource() { }
-
-  private LogDataSource setIpAddress(String ipAddress) {
-    this.ipAddress = ipAddress;
-    return this;
-  }
-
-  private LogDataSource setUserAgent(String userAgent) {
-    this.userAgent = userAgent;
-    return this;
-  }
-
-  private LogDataSource setStatusCode(Integer statusCode) {
-    this.statusCode = statusCode;
-    return this;
-  }
-
-  private LogDataSource setRequestType(String requestType) {
-    this.requestType = requestType;
-    return this;
-  }
-
-  private LogDataSource setApi(String api) {
-    this.api = api;
-    return this;
-  }
-
-  private LogDataSource setUser(String user) {
-    this.user = user;
-    return this;
-  }
-
-  private LogDataSource setEnterpriseId(String enterpriseId) {
-    this.enterpriseId = enterpriseId;
-    return this;
-  }
-
-  private LogDataSource setEnterpriseName(String enterpriseName) {
-    this.enterpriseName = enterpriseName;
-    return this;
+  private LogDataModel(Builder builder) {
+    this.ipAddress = builder.ipAddress;
+    this.userAgent = builder.userAgent;
+    this.statusCode = builder.statusCode;
+    this.requestType = builder.requestType;
+    this.api = builder.api;
+    this.user = builder.user;
+    this.enterpriseId = builder.enterpriseId;
+    this.enterpriseName = builder.enterpriseName;
   }
 
   public String getIpAddress() {
@@ -138,17 +107,10 @@ public final class LogDataSource {
       return this;
     }
 
-    public LogDataSource build() {
-      return new LogDataSource()
-          .setIpAddress(this.ipAddress)
-          .setUserAgent(this.userAgent)
-          .setStatusCode(this.statusCode)
-          .setRequestType(this.requestType)
-          .setApi(this.api)
-          .setUser(this.user)
-          .setEnterpriseId(this.enterpriseId)
-          .setEnterpriseName(this.enterpriseName);
+    public LogDataModel build() {
+      return new LogDataModel(this);
     }
+
   }
 
 }

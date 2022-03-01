@@ -1,6 +1,6 @@
 package com.example.loganalyzer.controller;
 
-import com.example.loganalyzer.datasource.LogDataSource;
+import com.example.loganalyzer.model.LogDataModel;
 import com.example.loganalyzer.parser.LogParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import java.util.List;
 public class LogParserController {
 
   @GetMapping("/parse")
-  public ResponseEntity<List<LogDataSource>> getParsedLogs(@RequestParam(name="filepath") String filePath) {
+  public ResponseEntity<List<LogDataModel>> getParsedLogs(@RequestParam(name="filepath") String filePath) {
     System.out.println("FilePath - " + filePath);
     LogParser parser = new LogParser(filePath);
     return new ResponseEntity<>(parser.parse(), HttpStatus.OK);
