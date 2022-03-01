@@ -1,7 +1,7 @@
-package com.example.loganalyzer.parser;
+package com.example.loganalyzer.controller.parser;
 
 import com.example.loganalyzer.model.LogDataModel;
-import com.example.loganalyzer.io.InputFileReader;
+import com.example.loganalyzer.controller.parser.io.InputFileReader;
 
 public class LogProcessor {
 

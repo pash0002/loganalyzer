@@ -1,4 +1,4 @@
-package com.example.loganalyzer.parser;
+package com.example.loganalyzer.controller.parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

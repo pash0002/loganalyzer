@@ -1,7 +1,7 @@
-package com.example.loganalyzer.controller;
+package com.example.loganalyzer.controller.parser;
 
 import com.example.loganalyzer.model.LogDataModel;
-import com.example.loganalyzer.parser.LogParser;
+import com.example.loganalyzer.controller.parser.LogParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

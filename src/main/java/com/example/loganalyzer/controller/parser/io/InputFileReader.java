@@ -1,4 +1,4 @@
-package com.example.loganalyzer.io;
+package com.example.loganalyzer.controller.parser.io;
 
 import java.io.*;
 
