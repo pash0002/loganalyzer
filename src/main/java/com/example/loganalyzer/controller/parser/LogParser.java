@@ -18,7 +18,7 @@ public class LogParser {
   }
 
   public List<LogDataModel> parse() {
-    LogProcessor processor = new LogProcessor(getFile());
+    LogProcessor processor = new LogProcessor();
     InputFileReader reader = getFile();
     while (reader.hasNext()) {
       listOfLogDataModel.add(processor.processAndGetLogDataSourceObject(reader.nextLine()));
