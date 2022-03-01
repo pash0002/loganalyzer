@@ -1,7 +1,6 @@
 package com.example.loganalyzer.controller.parser;
 
-import com.example.loganalyzer.model.LogDataModel;
-import com.example.loganalyzer.controller.parser.LogParser;
+import com.example.loganalyzer.model.LogData;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +12,18 @@ import java.util.List;
 @RestController
 public class LogParserController {
 
+  List<LogData> listOfLogData;
+
   @GetMapping("/parse")
-  public ResponseEntity<List<LogDataModel>> getParsedLogs(@RequestParam(name="filepath") String filePath) {
-    System.out.println("FilePath - " + filePath);
+  public ResponseEntity<List<LogData>> getParsedLogs(@RequestParam(name="path") String filePath) {
     LogParser parser = new LogParser(filePath);
-    return new ResponseEntity<>(parser.parse(), HttpStatus.OK);
+    this.listOfLogData = parser.parse();
+    return new ResponseEntity<>(this.listOfLogData, HttpStatus.OK);
+  }
+
+  @GetMapping("/parse/level")
+  public ResponseEntity<List<LogData>> getParsedLogsByLevel(@RequestParam(name="l") String level) {
+    return new ResponseEntity<>(new LogLevelService(listOfLogData).getLogsDataByLevel(level), HttpStatus.OK);
   }
 
 }

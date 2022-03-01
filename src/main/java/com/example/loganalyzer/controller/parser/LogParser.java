@@ -1,6 +1,6 @@
 package com.example.loganalyzer.controller.parser;
 
-import com.example.loganalyzer.model.LogDataModel;
+import com.example.loganalyzer.model.LogData;
 import com.example.loganalyzer.controller.parser.io.InputFileReader;
 
 import java.util.ArrayList;
@@ -9,22 +9,22 @@ import java.util.List;
 public class LogParser {
 
   private final String inputFile;
-  private final List<LogDataModel> listOfLogDataModel;
+  private final List<LogData> listOfLogData;
 
 
   public LogParser(String inputFile) {
-    listOfLogDataModel = new ArrayList<>();
+    listOfLogData = new ArrayList<>();
     this.inputFile = inputFile;
   }
 
-  public List<LogDataModel> parse() {
+  public List<LogData> parse() {
     LogProcessor processor = new LogProcessor();
     InputFileReader reader = getFile();
     while (reader.hasNext()) {
-      listOfLogDataModel.add(processor.processAndGetLogDataSourceObject(reader.nextLine()));
+      listOfLogData.add(processor.processAndGetLogDataSourceObject(reader.nextLine()));
     }
     reader.close();
-    return listOfLogDataModel;
+    return listOfLogData;
   }
 
   private InputFileReader getFile() {

@@ -1,12 +1,12 @@
 package com.example.loganalyzer.controller.parser;
 
-import com.example.loganalyzer.model.LogDataModel;
+import com.example.loganalyzer.model.LogData;
 
 public class LogProcessor {
 
   public LogProcessor() { }
 
-  public LogDataModel processAndGetLogDataSourceObject(String line) {
+  public LogData processAndGetLogDataSourceObject(String line) {
     RegexHandler regexHandler = new RegexHandler(line);
     String logLevel = regexHandler.getLogLevel();
     String ipAddress = regexHandler.getIpAddressWithRegex();
@@ -17,8 +17,9 @@ public class LogProcessor {
     String user = regexHandler.getUser();
     String enterpriseId = regexHandler.getEnterpriseId();
     String enterpriseName = regexHandler.getEnterpriseName();
-    return new LogDataModel
+    return new LogData
         .Builder()
+        .setLogLevel(logLevel)
         .setIpAddress(ipAddress)
         .setUserAgent(userAgent)
         .setStatusCode(statusCode)

@@ -1,7 +1,7 @@
 package com.example.loganalyzer.model;
 
 
-public final class LogDataModel {
+public final class LogData {
 
   private final String logLevel;
   private final String ipAddress;
@@ -13,7 +13,7 @@ public final class LogDataModel {
   private final String enterpriseId;
   private final String enterpriseName;
   
-  private LogDataModel(Builder builder) {
+  private LogData(Builder builder) {
     this.logLevel = builder.logLevel;
     this.ipAddress = builder.ipAddress;
     this.userAgent = builder.userAgent;
@@ -119,8 +119,8 @@ public final class LogDataModel {
       return this;
     }
 
-    public LogDataModel build() {
-      return new LogDataModel(this);
+    public LogData build() {
+      return new LogData(this);
     }
 
   }
