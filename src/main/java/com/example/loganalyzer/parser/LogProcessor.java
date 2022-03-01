@@ -23,7 +23,8 @@ public class LogProcessor {
     String user = regexHandler.getUser();
     String enterpriseId = regexHandler.getEnterpriseId();
     String enterpriseName = regexHandler.getEnterpriseName();
-    return new LogDataSource()
+    return new LogDataSource
+        .Builder()
         .setIpAddress(ipAddress)
         .setUserAgent(userAgent)
         .setStatusCode(statusCode)
@@ -31,7 +32,17 @@ public class LogProcessor {
         .setApi(api)
         .setUser(user)
         .setEnterpriseId(enterpriseId)
-        .setEnterpriseName(enterpriseName);
+        .setEnterpriseName(enterpriseName)
+        .build();
+//    return new LogDataSource()
+//        .setIpAddress(ipAddress)
+//        .setUserAgent(userAgent)
+//        .setStatusCode(statusCode)
+//        .setRequestType(requestType)
+//        .setApi(api)
+//        .setUser(user)
+//        .setEnterpriseId(enterpriseId)
+//        .setEnterpriseName(enterpriseName);
   }
 
 }

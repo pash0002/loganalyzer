@@ -1,8 +1,7 @@
 package com.example.loganalyzer.datasource;
 
-import org.springframework.http.ResponseEntity;
 
-public class LogDataSource {
+public final class LogDataSource {
   private String ipAddress;
   private String userAgent;
   private Integer statusCode;
@@ -12,44 +11,44 @@ public class LogDataSource {
   private String enterpriseId;
   private String enterpriseName;
   
-  public LogDataSource() { }
+  private LogDataSource() { }
 
-  public LogDataSource setIpAddress(String ipAddress) {
+  private LogDataSource setIpAddress(String ipAddress) {
     this.ipAddress = ipAddress;
     return this;
   }
 
-  public LogDataSource setUserAgent(String userAgent) {
+  private LogDataSource setUserAgent(String userAgent) {
     this.userAgent = userAgent;
     return this;
   }
 
-  public LogDataSource setStatusCode(Integer statusCode) {
+  private LogDataSource setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
 
-  public LogDataSource setRequestType(String requestType) {
+  private LogDataSource setRequestType(String requestType) {
     this.requestType = requestType;
     return this;
   }
 
-  public LogDataSource setApi(String api) {
+  private LogDataSource setApi(String api) {
     this.api = api;
     return this;
   }
 
-  public LogDataSource setUser(String user) {
+  private LogDataSource setUser(String user) {
     this.user = user;
     return this;
   }
 
-  public LogDataSource setEnterpriseId(String enterpriseId) {
+  private LogDataSource setEnterpriseId(String enterpriseId) {
     this.enterpriseId = enterpriseId;
     return this;
   }
 
-  public LogDataSource setEnterpriseName(String enterpriseName) {
+  private LogDataSource setEnterpriseName(String enterpriseName) {
     this.enterpriseName = enterpriseName;
     return this;
   }
@@ -84,6 +83,71 @@ public class LogDataSource {
 
   public String getEnterpriseName() {
     return enterpriseName;
+  }
+  
+  public static class Builder {
+    private String ipAddress;
+    private String userAgent;
+    private Integer statusCode;
+    private String requestType;
+    private String api;
+    private String user;
+    private String enterpriseId;
+    private String enterpriseName;
+    
+    public Builder() { }
+
+    public Builder setIpAddress(String ipAddress) {
+      this.ipAddress = ipAddress;
+      return this;
+    }
+
+    public Builder setUserAgent(String userAgent) {
+      this.userAgent = userAgent;
+      return this;
+    }
+
+    public Builder setStatusCode(Integer statusCode) {
+      this.statusCode = statusCode;
+      return this;
+    }
+
+    public Builder setRequestType(String requestType) {
+      this.requestType = requestType;
+      return this;
+    }
+
+    public Builder setApi(String api) {
+      this.api = api;
+      return this;
+    }
+
+    public Builder setUser(String user) {
+      this.user = user;
+      return this;
+    }
+
+    public Builder setEnterpriseId(String enterpriseId) {
+      this.enterpriseId = enterpriseId;
+      return this;
+    }
+
+    public Builder setEnterpriseName(String enterpriseName) {
+      this.enterpriseName = enterpriseName;
+      return this;
+    }
+
+    public LogDataSource build() {
+      return new LogDataSource()
+          .setIpAddress(this.ipAddress)
+          .setUserAgent(this.userAgent)
+          .setStatusCode(this.statusCode)
+          .setRequestType(this.requestType)
+          .setApi(this.api)
+          .setUser(this.user)
+          .setEnterpriseId(this.enterpriseId)
+          .setEnterpriseName(this.enterpriseName);
+    }
   }
 
 }
