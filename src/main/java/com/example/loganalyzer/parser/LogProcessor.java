@@ -5,7 +5,6 @@ import com.example.loganalyzer.io.InputFileReader;
 
 public class LogProcessor {
 
-//  private  RegexHandler regexHandler;
   private final InputFileReader reader;
 
   public LogProcessor(InputFileReader reader) {

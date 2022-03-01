@@ -2,6 +2,7 @@ package com.example.loganalyzer.datasource;
 
 
 public final class LogDataSource {
+
   private String ipAddress;
   private String userAgent;
   private Integer statusCode;

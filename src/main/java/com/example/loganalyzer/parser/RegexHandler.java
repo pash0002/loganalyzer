@@ -102,4 +102,5 @@ public class RegexHandler {
   private String splitAndGetValue(String val) {
     return val.split("=")[1];
   }
+
 }

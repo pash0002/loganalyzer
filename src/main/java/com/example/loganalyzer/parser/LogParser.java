@@ -5,17 +5,12 @@ import com.example.loganalyzer.io.InputFileReader;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class LogParser {
 
-//  private String logText = "";
   private final String inputFile;
   private final List<LogDataSource> listOfLogDataSource;
 
-//  public LogParser(String logText) {
-//    this.logText = logText;
-//  }
 
   public LogParser(String inputFile) {
     listOfLogDataSource = new ArrayList<>();

@@ -16,17 +16,6 @@ public class InputFileReader {
 
   }
 
-//  public String read() {
-//    String line = null;
-//    try {
-////      line =  reader.readLine();
-//
-//    } catch (IOException io) {
-//      System.out.println("IO occurred");
-//    }
-//    return line;
-//  }
-
   public Boolean hasNext() {
     try {
       line = reader.readLine();
