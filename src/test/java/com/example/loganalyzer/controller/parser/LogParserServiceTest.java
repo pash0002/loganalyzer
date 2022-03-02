@@ -59,9 +59,6 @@ class LogParserServiceTest {
     Exception negativeSizeException = assertThrows(IndexOutOfBoundsException.class, () ->
         service.getTailLogs(-1));
     assertEquals("Operation is not supported", negativeSizeException.getMessage());
-    Exception greaterSizeException = assertThrows(IndexOutOfBoundsException.class, () ->
-        service.getTailLogs(3));
-    assertEquals("Operation is not supported", greaterSizeException.getMessage());
   }
 
 }
