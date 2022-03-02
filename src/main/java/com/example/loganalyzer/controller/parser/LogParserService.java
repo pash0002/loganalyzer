@@ -20,9 +20,14 @@ public class LogParserService {
   }
 
   public List<LogData> getTailLogs(Integer tailCount) {
-    return this.listOfLogData.stream()
-        .skip(listOfLogData.size() - tailCount)
-        .collect(Collectors.toList());
+    int size = listOfLogData.size();
+    if (tailCount < 0 || tailCount > size) {
+      throw new IndexOutOfBoundsException("Operation is not supported");
+    }
+    if (tailCount == listOfLogData.size()) {
+      return listOfLogData;
+    }
+    return listOfLogData.subList(listOfLogData.size() - 1 - tailCount, listOfLogData.size() - 1);
   }
 
 }

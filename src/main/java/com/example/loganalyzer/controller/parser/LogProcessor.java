@@ -2,6 +2,10 @@ package com.example.loganalyzer.controller.parser;
 
 import com.example.loganalyzer.model.LogData;
 
+/**
+ * Processor class which will do processing on logs
+ * */
+
 public class LogProcessor {
 
   public LogProcessor() { }

@@ -6,9 +6,12 @@ import java.util.regex.Pattern;
 import static com.example.loganalyzer.controller.parser.constants.LogLevelEnum.*;
 import static com.example.loganalyzer.controller.parser.constants.RegexPatternConstants.*;
 
+/**
+ * Class that will handle all regex operations on a single log line
+ * */
+
 public class RegexHandler {
 
-  private final String logText;
   private final static String BLANK_STRING = "";
   private final static String EQUAL_TO_SPLITTER = "=";
   private static final Pattern IP_PATTERN = Pattern.compile(IP_ADDRESS, Pattern.CASE_INSENSITIVE);
@@ -19,6 +22,7 @@ public class RegexHandler {
   private static final Pattern USER_PATTERN = Pattern.compile(USER, Pattern.CASE_INSENSITIVE);
   private static final Pattern ENTERPRISE_ID_PATTERN = Pattern.compile(ENTERPRISE_ID, Pattern.CASE_INSENSITIVE);
   private static final Pattern ENTERPRISE_NAME_PATTERN = Pattern.compile(ENTERPRISE_NAME, Pattern.CASE_INSENSITIVE);
+  private final String logText;
 
   public RegexHandler(String logText) {
     this.logText = logText;
@@ -40,7 +44,7 @@ public class RegexHandler {
   }
 
   public String getIpAddressWithRegex() {
-    Matcher matcher = IP_PATTERN.matcher(this.logText);
+    final Matcher matcher = IP_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -49,7 +53,7 @@ public class RegexHandler {
   }
 
   public String getUserAgent() {
-    Matcher matcher = USER_AGENT_PATTERN.matcher(this.logText);
+    final Matcher matcher = USER_AGENT_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -58,7 +62,7 @@ public class RegexHandler {
   }
 
   public Integer getStatusCode() {
-    Matcher matcher = STATUS_CODE_PATTERN.matcher(this.logText);
+    final Matcher matcher = STATUS_CODE_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return Integer.parseInt(splitAndGetValue(matcher.group(0)));
     } else {
@@ -67,7 +71,7 @@ public class RegexHandler {
   }
 
   public String getRequestType() {
-    Matcher matcher = REQUEST_TYPE_PATTERN.matcher(this.logText);
+    final Matcher matcher = REQUEST_TYPE_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -76,7 +80,7 @@ public class RegexHandler {
   }
 
   public String getApi() {
-    Matcher matcher = API_PATTERN.matcher(this.logText);
+    final Matcher matcher = API_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -85,7 +89,7 @@ public class RegexHandler {
   }
 
   public String getUser() {
-    Matcher matcher = USER_PATTERN.matcher(this.logText);
+    final Matcher matcher = USER_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -94,7 +98,7 @@ public class RegexHandler {
   }
 
   public String getEnterpriseId() {
-    Matcher matcher = ENTERPRISE_ID_PATTERN.matcher(this.logText);
+    final Matcher matcher = ENTERPRISE_ID_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
@@ -103,7 +107,7 @@ public class RegexHandler {
   }
 
   public String getEnterpriseName() {
-    Matcher matcher = ENTERPRISE_NAME_PATTERN.matcher(this.logText);
+    final Matcher matcher = ENTERPRISE_NAME_PATTERN.matcher(this.logText);
     if (matcher.find()) {
       return splitAndGetValue(matcher.group(0));
     } else {
