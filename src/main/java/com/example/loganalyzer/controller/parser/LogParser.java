@@ -5,6 +5,9 @@ import com.example.loganalyzer.controller.parser.io.InputFileReader;
 
 import java.util.*;
 
+/**
+ * Parser class which will be responsible for end to end parsing
+ */
 public class LogParser {
 
   private final String inputFile;
@@ -16,6 +19,10 @@ public class LogParser {
     this.inputFile = inputFile;
   }
 
+  /**
+   * Method will return the parsed object
+   * @return List<LogData>
+   */
   public List<LogData> parse() {
     LogProcessor processor = new LogProcessor();
     InputFileReader reader = getFile();
@@ -26,6 +33,10 @@ public class LogParser {
     return listOfLogData;
   }
 
+  /**
+   * Method to Read File
+   * @return InputFileReader
+   */
   private InputFileReader getFile() {
     return new InputFileReader(inputFile);
   }

@@ -20,7 +20,7 @@ public class LogParserController {
   private List<LogData> listOfLogData;
 
   /**
-   * API will exposed the parsed log data
+   * API will expose the parsed log data
    * @param filePath String
    * @return ResponseEntity<List<LogData>>
    */

@@ -1,6 +1,8 @@
 package com.example.loganalyzer.controller.parser.constants;
 
-
+/**
+ * Regex pattern constants
+ */
 public class RegexPatternConstants {
 
   public static final String IP_ADDRESS = "(IP-Address=[0-9.]+)";

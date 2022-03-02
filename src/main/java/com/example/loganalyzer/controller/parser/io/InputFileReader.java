@@ -4,6 +4,9 @@ import java.io.*;
 
 import static com.example.loganalyzer.ApplicationLogger.LOGGER;
 
+/**
+ * Class is responsible for reading the log file
+ */
 public class InputFileReader {
 
   private BufferedReader reader;
@@ -18,6 +21,10 @@ public class InputFileReader {
 
   }
 
+  /**
+   * To Check the next line is exist or not
+   * @return Boolean
+   */
   public Boolean hasNext() {
     try {
       line = reader.readLine();
@@ -27,10 +34,17 @@ public class InputFileReader {
     return line != null;
   }
 
+  /**
+   * The method will return line from file
+   * @return String
+   */
   public String nextLine() {
     return line;
   }
 
+  /**
+   * The method will close BufferedReader object
+   */
   public void close() {
     try {
       reader.close();

@@ -10,6 +10,11 @@ public class LogProcessor {
 
   public LogProcessor() { }
 
+  /**
+   * Method will return the log data after processing
+   * @param line String
+   * @return LogData
+   */
   public LogData processAndGetLogDataSourceObject(String line) {
     RegexHandler regexHandler = new RegexHandler(line);
     String logLevel = regexHandler.getLogLevel();

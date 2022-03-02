@@ -3,7 +3,7 @@ package com.example.loganalyzer.controller.parser;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.example.loganalyzer.controller.parser.constants.LogLevelEnum.*;
+import static com.example.loganalyzer.controller.parser.constants.LogLevelConstants.*;
 import static com.example.loganalyzer.controller.parser.constants.RegexPatternConstants.*;
 
 /**

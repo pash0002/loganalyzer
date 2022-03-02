@@ -1,6 +1,9 @@
 package com.example.loganalyzer.controller.parser.constants;
 
-public class LogLevelEnum {
+/**
+ * Log Constants
+ */
+public class LogLevelConstants {
 
   public static final String ERROR = "ERROR";
   public static final String WARN = "WARN";
