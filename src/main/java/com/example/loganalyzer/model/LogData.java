@@ -1,6 +1,8 @@
 package com.example.loganalyzer.model;
 
 
+import java.util.Objects;
+
 public final class LogData {
 
   private final String logLevel;
@@ -123,6 +125,22 @@ public final class LogData {
       return new LogData(this);
     }
 
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    LogData logData = (LogData) o;
+    return Objects.equals(logLevel, logData.logLevel)
+        && Objects.equals(ipAddress, logData.ipAddress)
+        && Objects.equals(userAgent, logData.userAgent)
+        && Objects.equals(statusCode, logData.statusCode)
+        && Objects.equals(requestType, logData.requestType)
+        && Objects.equals(api, logData.api)
+        && Objects.equals(user, logData.user)
+        && Objects.equals(enterpriseId, logData.enterpriseId)
+        && Objects.equals(enterpriseName, logData.enterpriseName);
   }
 
 }

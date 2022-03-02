@@ -1,31 +1,37 @@
 package com.example.loganalyzer.parser;
 
 import com.example.loganalyzer.controller.parser.LogParser;
+import com.example.loganalyzer.model.LogData;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
 class LogParserTest {
 
   LogParser logParser;
-
-  @BeforeEach
-  void setUp() {
-  }
-
-  @AfterEach
-  void tearDown() {
-  }
+  String inputFile =  "./build/resources/main/log-files/demo-logfile.log";
 
   @Test
-  void getParsedString() {
-    String logText = "2018-09-18 04:49:38,215 ERROR (default task-95) IP-Address=157.49.141.133" +
-        "#,!User-Agent=Mozilla/5.0 (Windows NT 10.0; WOW64;Trident/7.0; rv:11.0) like Gecko" +
-        "#,!X-Request-From=UIX#,!Request-Type=POST#,!API=/v1/admin/developers#,!User-Login=test@demo.com" +
-        "#,!User-Name=testUser#,!EnterpriseId=2#,!EnterpriseName=Enterprise-2#,!Auth-Status=#,!Status-Code=200" +
-        "#,!Response-Time=346#,!Request-Body=";
-    logParser = new LogParser(logText);
-    logParser.parse();
+  void getParsedData() {
+    logParser = new LogParser(inputFile);
+    List<LogData> logDataList = logParser.parse();
+    LogData mockData = new LogData.Builder()
+        .setLogLevel("ERROR")
+        .setIpAddress("157.49.141.133")
+        .setUserAgent("Mozilla/5.0 (Windows NT 10.0; WOW64;Trident/7.0; rv:11.0) like Gecko")
+        .setStatusCode(200)
+        .setRequestType("POST")
+        .setApi("/v1/admin/developers")
+        .setUser("testUser")
+        .setEnterpriseId("2")
+        .setEnterpriseName("Enterprise-2")
+        .build();
+    assertEquals(logDataList.get(0), mockData);
+    assertEquals(logDataList.size(), 13);
   }
 
 
