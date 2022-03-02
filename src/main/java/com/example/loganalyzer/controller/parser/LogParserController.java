@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Controller class which will be having REST API for the log processing
  * This class will show output in JSON format on any browser or REST API testing tools
- * */
+ */
 
 @RestController
 public class LogParserController {
@@ -21,11 +21,12 @@ public class LogParserController {
 
   /**
    * API will expose the parsed log data
+   *
    * @param filePath String
-   * @return ResponseEntity<List<LogData>>
+   * @return ResponseEntity<List < LogData>>
    */
   @GetMapping("api/parse")
-  public ResponseEntity<List<LogData>> getParsedLogs(@RequestParam(name="path") String filePath) {
+  public ResponseEntity<List<LogData>> getParsedLogs(@RequestParam(name = "path") String filePath) {
     LogParser parser = new LogParser(filePath);
     this.listOfLogData = parser.parse();
     return new ResponseEntity<>(this.listOfLogData, HttpStatus.OK);
@@ -33,21 +34,23 @@ public class LogParserController {
 
   /**
    * API will expose data by logging level
+   *
    * @param level String
-   * @return ResponseEntity<List<LogData>>
+   * @return ResponseEntity<List < LogData>>
    */
   @GetMapping("api/parse/level")
-  public ResponseEntity<List<LogData>> getParsedLogsByLevel(@RequestParam(name="l") String level) {
+  public ResponseEntity<List<LogData>> getParsedLogsByLevel(@RequestParam(name = "l") String level) {
     return new ResponseEntity<>(new LogParserService(listOfLogData).getLogsDataByLevel(level), HttpStatus.OK);
   }
 
   /**
    * API will expose tail logs via count of last lines
+   *
    * @param tailCount Integer
-   * @return ResponseEntity<List<LogData>>
+   * @return ResponseEntity<List < LogData>>
    */
   @GetMapping("api/parse/tail")
-  public ResponseEntity<List<LogData>> getTailLogs(@RequestParam(name="t") Integer tailCount) {
+  public ResponseEntity<List<LogData>> getTailLogs(@RequestParam(name = "t") Integer tailCount) {
     return new ResponseEntity<>(new LogParserService(listOfLogData).getTailLogs(tailCount), HttpStatus.OK);
   }
 

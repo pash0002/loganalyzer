@@ -4,14 +4,16 @@ import com.example.loganalyzer.model.LogData;
 
 /**
  * Processor class which will do processing on logs
- * */
+ */
 
 public class LogProcessor {
 
-  public LogProcessor() { }
+  public LogProcessor() {
+  }
 
   /**
    * Method will return the log data after processing
+   *
    * @param line String
    * @return LogData
    */

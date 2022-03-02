@@ -8,7 +8,7 @@ import static com.example.loganalyzer.controller.parser.constants.RegexPatternCo
 
 /**
  * Class that will handle all regex operations on a single log line
- * */
+ */
 
 public class RegexHandler {
 

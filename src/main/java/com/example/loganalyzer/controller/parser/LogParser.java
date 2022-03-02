@@ -21,6 +21,7 @@ public class LogParser {
 
   /**
    * Method will return the parsed object
+   *
    * @return List<LogData>
    */
   public List<LogData> parse() {
@@ -35,6 +36,7 @@ public class LogParser {
 
   /**
    * Method to Read File
+   *
    * @return InputFileReader
    */
   private InputFileReader getFile() {

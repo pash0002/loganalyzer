@@ -19,17 +19,19 @@ public class LogParserService {
 
   /**
    * Service for getting log by level like ERROR INFO
+   *
    * @param level String
    * @return List<LogData>
    */
   public List<LogData> getLogsDataByLevel(String level) {
     return this.listOfLogData.stream()
-        .filter(x-> x.getLogLevel().equalsIgnoreCase(level))
+        .filter(x -> x.getLogLevel().equalsIgnoreCase(level))
         .collect(Collectors.toList());
   }
 
   /**
    * Service for getting tail logs
+   *
    * @param tailCount String
    * @return List<LogData>
    */
