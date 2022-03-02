@@ -3,6 +3,9 @@ package com.example.loganalyzer.model;
 
 import java.util.Objects;
 
+/**
+ * The class will hold the Data
+ */
 public final class LogData {
 
   private final String logLevel;
@@ -14,7 +17,7 @@ public final class LogData {
   private final String user;
   private final String enterpriseId;
   private final String enterpriseName;
-  
+
   private LogData(Builder builder) {
     this.logLevel = builder.logLevel;
     this.ipAddress = builder.ipAddress;
@@ -62,7 +65,7 @@ public final class LogData {
   public String getEnterpriseName() {
     return enterpriseName;
   }
-  
+
   public static class Builder {
     private String ipAddress;
     private String userAgent;
@@ -73,8 +76,9 @@ public final class LogData {
     private String enterpriseId;
     private String enterpriseName;
     private String logLevel;
-    
-    public Builder() { }
+
+    public Builder() {
+    }
 
     public Builder setLogLevel(String logLevel) {
       this.logLevel = logLevel;

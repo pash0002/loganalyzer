@@ -18,16 +18,16 @@ public class LogProcessor {
    * @return LogData
    */
   public LogData processAndGetLogDataSourceObject(String line) {
-    RegexHandler regexHandler = new RegexHandler(line);
-    String logLevel = regexHandler.getLogLevel();
-    String ipAddress = regexHandler.getIpAddressWithRegex();
-    String userAgent = regexHandler.getUserAgent();
-    Integer statusCode = regexHandler.getStatusCode();
-    String requestType = regexHandler.getRequestType();
-    String api = regexHandler.getApi();
-    String user = regexHandler.getUser();
-    String enterpriseId = regexHandler.getEnterpriseId();
-    String enterpriseName = regexHandler.getEnterpriseName();
+    final RegexHandler regexHandler = new RegexHandler(line);
+    final String logLevel = regexHandler.getLogLevel();
+    final String ipAddress = regexHandler.getIpAddressWithRegex();
+    final String userAgent = regexHandler.getUserAgent();
+    final Integer statusCode = regexHandler.getStatusCode();
+    final String requestType = regexHandler.getRequestType();
+    final String api = regexHandler.getApi();
+    final String user = regexHandler.getUser();
+    final String enterpriseId = regexHandler.getEnterpriseId();
+    final String enterpriseName = regexHandler.getEnterpriseName();
     return new LogData
         .Builder()
         .setLogLevel(logLevel)
