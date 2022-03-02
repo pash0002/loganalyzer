@@ -3,8 +3,7 @@ package com.example.loganalyzer.controller.parser;
 import com.example.loganalyzer.model.LogData;
 import com.example.loganalyzer.controller.parser.io.InputFileReader;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class LogParser {
 
